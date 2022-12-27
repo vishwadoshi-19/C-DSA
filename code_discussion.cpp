@@ -1,32 +1,28 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-#include <string>
 
 int main()
 {
     string lyrics;
-    string modLyrics;
+    string modLyrics[100];
     cin >> lyrics;
-    int len = lyrics.length();
-    int i = 0;
     int count = 0;
     int j = 0;
 
-    while (i < len)
-    {
-        if (lyrics[i] == 'W' && lyrics[i+1] == 'U' && lyrics[i+2] == 'B')
+    for(int i=0;i<lyrics.length();i++){
+         if (lyrics[i] == 'W' && lyrics[i+1] == 'U' && lyrics[i+2] == 'B')
         {
-            i = i + 3;
-            count++;  
+            i = i + 2;
         }
         else{
-            if (count == 0 || count ==1)
+            if (count == 0)
             {
                 while (lyrics[i] != 'W' && lyrics[i+1] != 'U' && lyrics[i+2] != 'B' )
                 {
                     modLyrics[j] = lyrics[i];
                     j++;
                     i++;
+                    count++;
                 }
             }
             else
@@ -38,9 +34,11 @@ int main()
                     modLyrics[j] = lyrics[i];
                     j++;
                     i++;
+                    count++;
                 }
             }
         }
     }
     cout<<modLyrics;
 }
+
